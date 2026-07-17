@@ -1,0 +1,25 @@
+name: Update live server info
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+  workflow_dispatch: {}       # lets you trigger it manually from the Actions tab
+
+jobs:
+  query:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Query CS:S server
+        run: python3 counterStrikeSource/query_server.py
+
+      - name: Commit updated server-info.json
+        run: |
+          git config user.name "server-status-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add counterStrikeSource/server-info.json
+          git diff --staged --quiet || git commit -m "Update live server info"
+          git push
