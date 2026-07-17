@@ -1,5 +1,12 @@
 {
-  "online": false,
-  "error": "timed out",
-  "queried_at": 1784306824
+  "name": "MrZsomi Practice Server",
+  "map": "de_inferno",
+  "game": "Counter-Strike: Source",
+  "players": 10,
+  "max_players": 32,
+  "bots": 10,
+  "password_protected": true,
+  "vac_secured": true,
+  "online": true,
+  "queried_at": 1784310753
 }
