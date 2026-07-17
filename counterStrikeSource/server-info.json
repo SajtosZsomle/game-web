@@ -1,0 +1,12 @@
+{
+  "name": "MrZsomi Practice Server",
+  "map": "de_nuke",
+  "game": "Counter-Strike: Source",
+  "players": 10,
+  "max_players": 32,
+  "bots": 10,
+  "password_protected": true,
+  "vac_secured": true,
+  "online": true,
+  "queried_at": 1784292842
+}
