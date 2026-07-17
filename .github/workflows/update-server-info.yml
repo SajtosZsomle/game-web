@@ -20,6 +20,6 @@ jobs:
         run: |
           git config user.name "server-status-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add counterStrikeSource/server-info.json
+          git add -f counterStrikeSource/server-info.json
           git diff --staged --quiet || git commit -m "Update live server info"
           git push
