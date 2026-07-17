@@ -1,352 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MrZsomi.top: Asset Directory</title>
-    <style>
-        /* ── Reset & base ── */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MrZsomi.top: Asset Directory</title>
 
-        :root {
-            --bg: #0d1117;
-            --card-bg: #161b22;
-            --border: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --text-muted: #484f58;
-            --accent: #1f6feb;
-            --accent-hover: #58a6ff;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-            --radius: 12px;
-            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                "Helvetica Neue", Arial, sans-serif;
-        }
+<style>
+/* ── Reset & base ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-primary);
-            font-family: var(--font);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 24px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+:root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #484f58;
+    --accent: #1f6feb;
+    --accent-hover: #58a6ff;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --radius: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
 
-        /* ── Card ── */
-        .portal-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            max-width: 540px;
-            width: 100%;
-            padding: 48px 40px 36px;
-            transition: box-shadow 0.2s ease;
-        }
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+}
 
-        /* ── Header ── */
-        .header-section {
-            margin-bottom: 24px;
-        }
+/* ── Card ── */
+.portal-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 540px;
+    width: 100%;
+    padding: 48px 40px 36px;
+}
 
-        .badge {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: rgba(31, 111, 235, 0.12);
-            padding: 4px 12px;
-            border-radius: 9999px;
-            margin-bottom: 16px;
-        }
+/* ── Header ── */
+.header-section {
+    margin-bottom: 24px;
+}
 
-        h1 {
-            font-size: 26px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.25;
-            margin: 0 0 8px 0;
-            color: var(--text-primary);
-        }
+.badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(31, 111, 235, 0.12);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 16px;
+}
 
-        .description {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin: 0;
-        }
+h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
 
-        .description strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+.description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
 
-        /* ── Divider ── */
-        .divider {
-            border: 0;
-            border-top: 1px solid var(--border);
-            margin: 28px 0 24px;
-        }
+.description strong {
+    color: var(--text-primary);
+}
 
-        /* ── Directory info ── */
-        .dir-info {
-            margin-bottom: 24px;
-        }
+/* ── Divider ── */
+.divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 28px 0 24px;
+}
 
-        .dir-heading {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
+/* ── Directory info ── */
+.dir-info {
+    margin-bottom: 24px;
+}
 
-        .dir-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+.dir-heading {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
 
-        .dir-list li {
-            font-size: 14px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            padding-left: 20px;
-            position: relative;
-        }
+.dir-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
-        .dir-list li::before {
-            content: "·";
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
+.dir-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding-left: 20px;
+    position: relative;
+}
 
-        .dir-list code {
-            background: rgba(255, 255, 255, 0.06);
-            padding: 1px 8px;
-            border-radius: 4px;
-            font-size: 13px;
-            color: var(--text-primary);
-        }
+.dir-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
 
-        /* ── Actions ── */
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 4px;
-        }
+.dir-list code {
+    background: rgba(255,255,255,0.06);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--text-primary);
+}
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.15s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
-            font-family: inherit;
-            line-height: 1.4;
-        }
+/* ── Actions ── */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
 
-        .btn-primary {
-            background: var(--accent);
-            color: #ffffff;
-            border-color: var(--accent);
-        }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.15s ease;
+    border: 1px solid transparent;
+}
 
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            border-color: var(--accent-hover);
-        }
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-primary);
-            border-color: var(--border);
-        }
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #4a525c;
-        }
+.btn-secondary {
+    background: rgba(255,255,255,0.04);
+    color: var(--text-primary);
+    border-color: var(--border);
+}
 
-        /* ── Status chip ── */
-        .status-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+}
 
-        .status-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #2da44e;
-            flex-shrink: 0;
-            box-shadow: 0 0 6px rgba(45, 164, 78, 0.5);
-        }
+/* ── Status chip ── */
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        /* ── Footer ── */
-        .footer {
-            margin-top: 28px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2da44e;
+}
 
-        .footer-copy {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+/* ── Directory browser ── */
+.directory-browser {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
 
-        .footer-links {
-            display: flex;
-            gap: 16px;
-        }
+.directory-browser-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
 
-        .footer-links a {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.15s ease;
-        }
+.directory-browser-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
 
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
+/* ── Footer ── */
+.footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-        /* ── Responsive ── */
-        @media (max-width: 480px) {
-            .portal-card {
-                padding: 32px 20px 24px;
-            }
-            h1 {
-                font-size: 22px;
-            }
-            .actions {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            .footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-        }
+.footer-copy {
+    font-size: 12px;
+    color: var(--text-muted);
+}
 
-        @media print {
-            body {
-                background: #fff;
-                padding: 40px;
-            }
-            .portal-card {
-                box-shadow: none;
-                border-color: #ddd;
-                background: #fff;
-            }
-            .btn {
-                border: 1px solid #ccc;
-                background: #fafafa !important;
-                color: #222 !important;
-            }
-            .btn-primary {
-                background: #fafafa !important;
-            }
-            .status-dot {
-                box-shadow: none;
-            }
-        }
-    </style>
+.footer-links {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-links a {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+
+/* ── Mobile ── */
+@media(max-width:480px) {
+
+    .portal-card {
+        padding: 32px 20px 24px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <div class="portal-card" role="main">
+<div class="portal-card">
 
-        <!-- Header -->
-        <header class="header-section">
-            <span class="badge">Asset Directory</span>
-            <h1>Are you on the right page?</h1>
-            <p class="description">
-                The subdomain <strong>game.mrzsomi.top</strong> is strictly used for
-                internal gameserver asset deployments, API hooks, and data imports.
-                It is not a public-facing website.
-            </p>
-        </header>
+<header class="header-section">
 
-        <hr class="divider" />
+<span class="badge">
+Asset Directory
+</span>
 
-        <!-- Directory context -->
-        <section class="dir-info">
-            <h2 class="dir-heading">This endpoint serves</h2>
-            <ul class="dir-list">
-                <li>Game client HTML / JS bundles</li>
-                <li>Asset manifests &amp; configuration files (<code>.json</code>, <code>.yaml</code>)</li>
-                <li>Internal API hook payloads</li>
-                <li>Data import scripts and versioned assets</li>
-            </ul>
-        </section>
+<h1>
+Are you on the right page?
+</h1>
 
-        <!-- Actions -->
-        <div class="actions">
-            <a href="https://mrzsomi.top" class="btn btn-primary">
-                <span>Go to main website</span>
-                <span aria-hidden="true">→</span>
-            </a>
-            <a href="https://status.mrzsomi.top" class="btn btn-secondary">
-                <span class="status-chip">
-                    <span class="status-dot" aria-hidden="true"></span>
-                    System status
-                </span>
-            </a>
-        </div>
+<p class="description">
+The subdomain <strong>game.mrzsomi.top</strong> is strictly used for
+internal gameserver asset deployments, API hooks, and data imports.
+It is not a public-facing website.
+</p>
 
-        <!-- Footer (support link removed) -->
-        <footer class="footer">
-            <span class="footer-copy">&copy; 2026 MrZsomi; All rights reserved.</span>
-            <nav class="footer-links" aria-label="Footer navigation">
-                <a href="https://mrzsomi.top">Home</a>
-                <a href="https://status.mrzsomi.top">Status</a>
-            </nav>
-        </footer>
+</header>
 
-    </div>
+
+<hr class="divider">
+
+
+<section class="dir-info">
+
+<h2 class="dir-heading">
+This endpoint serves
+</h2>
+
+<ul class="dir-list">
+
+<li>Game client HTML / JS bundles</li>
+<li>Asset manifests & configuration files (<code>.json</code>, <code>.yaml</code>)</li>
+<li>Internal API hook payloads</li>
+<li>Data import scripts and versioned assets</li>
+
+</ul>
+
+</section>
+
+
+
+<div class="actions">
+
+<a href="https://mrzsomi.top" class="btn btn-primary">
+Go to main website →
+</a>
+
+
+<a href="https://status.mrzsomi.top" class="btn btn-secondary">
+
+<span class="status-chip">
+<span class="status-dot"></span>
+System status
+</span>
+
+</a>
+
+</div>
+
+
+
+<!-- Developer directory browser -->
+<section class="directory-browser">
+
+<h2 class="directory-browser-title">
+Developer tools
+</h2>
+
+
+<p class="directory-browser-text">
+Browse available directories and hosted assets.
+</p>
+
+
+<a href="directories.html" class="btn btn-secondary">
+📁 Browse directories →
+</a>
+
+
+</section>
+
+
+
+<footer class="footer">
+
+<span class="footer-copy">
+© 2026 MrZsomi. All rights reserved.
+</span>
+
+
+<nav class="footer-links">
+
+<a href="https://mrzsomi.top">
+Home
+</a>
+
+<a href="https://status.mrzsomi.top">
+Status
+</a>
+
+</nav>
+
+
+</footer>
+
+
+</div>
+
 
 </body>
 </html>

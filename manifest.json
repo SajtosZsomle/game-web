@@ -1,0 +1,10 @@
+{
+  "directories": [
+    {
+      "name": "counterStrikeSource",
+      "path": "counterStrikeSource/",
+      "label": "Counter-Strike: Source",
+      "description": "Game client bundles, plugins, MOTDs, asset manifests, and configuration files."
+    }
+  ]
+}
