@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "MrZsomi Practice Server",
   "map": "de_dust2",
@@ -9,4 +10,17 @@
   "vac_secured": true,
   "online": true,
   "queried_at": 1784297871
+=======
+{
+  "name": "MrZsomi Practice Server",
+  "map": "de_inferno",
+  "game": "Counter-Strike: Source",
+  "players": 10,
+  "max_players": 32,
+  "bots": 10,
+  "password_protected": true,
+  "vac_secured": true,
+  "online": true,
+  "queried_at": 1784490701
+>>>>>>> 6bdc04fe529ee66f662795d960594edfa80d4a74
 }
