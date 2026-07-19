@@ -1,6 +1,6 @@
 {
   "name": "MrZsomi Practice Server",
-  "map": "cs_office",
+  "map": "cs_italy",
   "game": "Counter-Strike: Source",
   "players": 10,
   "max_players": 32,
@@ -8,5 +8,5 @@
   "password_protected": true,
   "vac_secured": true,
   "online": true,
-  "queried_at": 1784423207
+  "queried_at": 1784435621
 }
