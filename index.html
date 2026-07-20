@@ -1,390 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MrZsomi.top | Asset Directory</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Internal infrastructure endpoint for game.mrzsomi.top.">
+<meta name="theme-color" content="#0b1020">
+<title>game.mrzsomi.top | Infrastructure</title>
 
 <style>
-/* ── Reset & base ── */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    color-scheme: dark;
+    --background: #0b1020;
+    --surface: rgba(19, 27, 47, 0.88);
+    --surface-raised: rgba(27, 38, 64, 0.7);
+    --border: rgba(157, 181, 227, 0.16);
+    --border-strong: rgba(157, 181, 227, 0.25);
+    --text: #f3f7ff;
+    --text-secondary: #aab7d0;
+    --text-muted: #7886a1;
+    --primary: #7c9cff;
+    --primary-hover: #9bb2ff;
+    --success: #46d49b;
+    --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
 }
 
-:root {
-    --bg: #0d1117;
-    --card-bg: #161b22;
-    --border: #30363d;
-    --text-primary: #f0f6fc;
-    --text-secondary: #8b949e;
-    --text-muted: #484f58;
-    --accent: #1f6feb;
-    --accent-hover: #58a6ff;
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-    --radius: 12px;
-    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: var(--background);
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text-primary);
-    font-family: var(--font);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    padding: 24px;
+    margin: 0;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 8% 5%, rgba(92, 111, 226, 0.2), transparent 29rem),
+        radial-gradient(circle at 96% 95%, rgba(38, 168, 151, 0.13), transparent 27rem),
+        var(--background);
+    color: var(--text);
+    font-family: var(--font);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-/* ── Card ── */
+.page-shell {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+}
+
 .portal-card {
-    background: var(--card-bg);
+    width: min(100%, 680px);
+    overflow: hidden;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 24px;
     box-shadow: var(--shadow);
-    max-width: 540px;
-    width: 100%;
-    padding: 48px 40px 36px;
+    backdrop-filter: blur(18px);
 }
 
-/* ── Header ── */
-.header-section {
-    margin-bottom: 24px;
+.card-content {
+    padding: 48px;
 }
 
-.badge {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border: 1px solid rgba(124, 156, 255, 0.25);
+    border-radius: 999px;
+    background: rgba(124, 156, 255, 0.1);
+    color: #b9c8ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    line-height: 1;
     text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(31, 111, 235, 0.12);
-    padding: 4px 12px;
-    border-radius: 9999px;
-    margin-bottom: 16px;
+}
+
+.eyebrow::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 12px currentColor;
+    content: "";
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+.hero {
+    margin-top: 22px;
 }
 
 h1 {
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-    margin-bottom: 8px;
+    max-width: 13ch;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.06;
 }
 
 .description {
-    font-size: 15px;
-    line-height: 1.6;
+    max-width: 57ch;
+    margin-top: 18px;
     color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-.description strong {
-    color: var(--text-primary);
-}
-
-/* ── Divider ── */
-.divider {
-    border: 0;
-    border-top: 1px solid var(--border);
-    margin: 28px 0 24px;
-}
-
-/* ── Directory info ── */
-.dir-info {
-    margin-bottom: 24px;
-}
-
-.dir-heading {
-    font-size: 13px;
+.domain {
+    color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.92em;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
 }
 
-.dir-list {
-    list-style: none;
+.status-banner {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 14px 16px;
+    border: 1px solid rgba(70, 212, 155, 0.2);
+    border-radius: 12px;
+    background: rgba(70, 212, 155, 0.08);
+    color: #c4f5df;
+    font-size: 0.875rem;
+    line-height: 1.4;
 }
 
-.dir-list li {
-    font-size: 14px;
+.status-indicator {
+    flex: 0 0 auto;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(70, 212, 155, 0.12);
+}
+
+.section {
+    margin-top: 36px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.section-intro {
+    margin-top: 8px;
     color: var(--text-secondary);
-    padding-left: 20px;
-    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
-.dir-list li::before {
-    content: "·";
-    position: absolute;
-    left: 0;
+.resource-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.resource-list li {
+    min-height: 84px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-raised);
+}
+
+.resource-label {
+    display: block;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.resource-detail {
+    display: block;
+    margin-top: 5px;
     color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.45;
 }
 
-.dir-list code {
-    background: rgba(255,255,255,0.06);
-    padding: 1px 8px;
-    border-radius: 4px;
-    font-size: 13px;
-    color: var(--text-primary);
+code {
+    color: #c5d1ff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
 }
 
-/* ── Actions ── */
 .actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 12px;
+    margin-top: 32px;
 }
 
-.btn {
+.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.15s ease;
+    gap: 9px;
+    min-height: 44px;
+    padding: 10px 16px;
     border: 1px solid transparent;
-}
-
-.btn-primary {
-    background: var(--accent);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--accent-hover);
-}
-
-.btn-secondary {
-    background: rgba(255,255,255,0.04);
-    color: var(--text-primary);
-    border-color: var(--border);
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.08);
-}
-
-/* ── Status chip ── */
-.status-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #2da44e;
-}
-
-/* ── Directory browser ── */
-.directory-browser {
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-}
-
-.directory-browser-title {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-
-.directory-browser-text {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 14px;
-}
-
-/* ── Footer ── */
-.footer {
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-copy {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-.footer-links {
-    display: flex;
-    gap: 16px;
-}
-
-.footer-links a {
-    font-size: 12px;
-    color: var(--text-muted);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 650;
+    line-height: 1;
     text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease,
+        transform 160ms ease;
 }
 
-.footer-links a:hover {
-    color: var(--text-primary);
+.button:hover {
+    transform: translateY(-1px);
 }
 
+.button:focus-visible,
+.footer a:focus-visible {
+    outline: 3px solid rgba(155, 178, 255, 0.65);
+    outline-offset: 3px;
+}
 
-/* ── Mobile ── */
-@media(max-width:480px) {
+.button-primary {
+    background: var(--primary);
+    color: #0c1430;
+}
+
+.button-primary:hover {
+    background: var(--primary-hover);
+}
+
+.button-secondary {
+    border-color: var(--border-strong);
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.button-secondary:hover {
+    border-color: rgba(155, 178, 255, 0.5);
+    background: rgba(124, 156, 255, 0.12);
+}
+
+.button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.directory-access {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 32px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.directory-access h2 {
+    font-size: 0.95rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.directory-access p {
+    max-width: 38ch;
+    margin-top: 6px;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.directory-access .button {
+    flex: 0 0 auto;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 48px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 18px;
+}
+
+.footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 160ms ease;
+}
+
+.footer a:hover {
+    color: var(--text);
+}
+
+@media (max-width: 600px) {
+    .page-shell {
+        padding: 16px;
+    }
 
     .portal-card {
-        padding: 32px 20px 24px;
+        border-radius: 18px;
     }
 
-    .actions {
+    .card-content {
+        padding: 32px 24px;
+    }
+
+    .resource-list {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-access {
+        align-items: flex-start;
         flex-direction: column;
+        gap: 18px;
     }
 
-    .btn {
+    .directory-access .button,
+    .actions .button {
         width: 100%;
     }
 
     .footer {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 12px;
+        padding: 18px 24px;
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 </style>
 </head>
-
-
 <body>
+<main class="page-shell">
+    <article class="portal-card" aria-labelledby="page-title">
+        <div class="card-content">
+            <span class="eyebrow">Infrastructure endpoint</span>
 
-<div class="portal-card">
+            <header class="hero">
+                <h1 id="page-title">Game services infrastructure</h1>
+                <p class="description">
+                    <span class="domain">game.mrzsomi.top</span> supports internal game server
+                    operations, including deployed client assets, integration payloads, and data
+                    imports. It is not a public-facing website.
+                </p>
+            </header>
 
-<header class="header-section">
+            <p class="status-banner">
+                <span class="status-indicator" aria-hidden="true"></span>
+                <span>Check the status page for current service availability.</span>
+            </p>
 
-<span class="badge">
-Asset Directory
-</span>
+            <section class="section" aria-labelledby="services-heading">
+                <h2 class="section-heading" id="services-heading">Available resources</h2>
+                <p class="section-intro">This endpoint provides the following internal resources.</p>
 
-<h1>
-Are you on the right page?
-</h1>
+                <ul class="resource-list">
+                    <li>
+                        <span class="resource-label">Client bundles</span>
+                        <span class="resource-detail">Game HTML and JavaScript distributions</span>
+                    </li>
+                    <li>
+                        <span class="resource-label">Configuration</span>
+                        <span class="resource-detail"><code>.json</code> and <code>.yaml</code> manifests</span>
+                    </li>
+                    <li>
+                        <span class="resource-label">Integration payloads</span>
+                        <span class="resource-detail">Internal API and service hook data</span>
+                    </li>
+                    <li>
+                        <span class="resource-label">Versioned assets</span>
+                        <span class="resource-detail">Import scripts and deployable static files</span>
+                    </li>
+                </ul>
+            </section>
 
-<p class="description">
-The subdomain <strong>game.mrzsomi.top</strong> is strictly used for
-internal gameserver asset deployments, API hooks, and data imports.
-It is not a public-facing website.
-</p>
+            <nav class="actions" aria-label="Site navigation">
+                <a class="button button-primary" href="https://mrzsomi.top">
+                    Visit main website
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </a>
+                <a class="button button-secondary" href="https://status.mrzsomi.top">
+                    View system status
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </a>
+            </nav>
 
-</header>
+            <section class="directory-access" aria-labelledby="directory-heading">
+                <div>
+                    <h2 id="directory-heading">Developer access</h2>
+                    <p>Browse hosted directories and assets for deployment and operational debugging.</p>
+                </div>
+                <a class="button button-secondary" href="directories.html">
+                    Browse directories
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </a>
+            </section>
+        </div>
 
-
-<hr class="divider">
-
-
-<section class="dir-info">
-
-<h2 class="dir-heading">
-This endpoint serves
-</h2>
-
-<ul class="dir-list">
-
-<li>Game client HTML / JS bundles</li>
-<li>Asset manifests & configuration files (<code>.json</code>, <code>.yaml</code>)</li>
-<li>Internal API hook payloads</li>
-<li>Data import scripts and versioned assets</li>
-
-</ul>
-
-</section>
-
-
-
-<div class="actions">
-
-<a href="https://mrzsomi.top" class="btn btn-primary">
-Go to main website →
-</a>
-
-
-<a href="https://status.mrzsomi.top" class="btn btn-secondary">
-
-<span class="status-chip">
-<span class="status-dot"></span>
-System status
-</span>
-
-</a>
-
-</div>
-
-
-
-<!-- Developer directory browser -->
-<section class="directory-browser">
-
-<h2 class="directory-browser-title">
-Developer tools
-</h2>
-
-
-<p class="directory-browser-text">
-Browse available directories and hosted assets.
-</p>
-
-
-<a href="directories.html" class="btn btn-secondary">
-📁 Browse directories →
-</a>
-
-
-</section>
-
-
-
-<footer class="footer">
-
-<span class="footer-copy">
-© 2026 MrZsomi. All rights reserved.
-</span>
-
-
-<nav class="footer-links">
-
-<a href="https://mrzsomi.top">
-Home
-</a>
-
-<a href="https://status.mrzsomi.top">
-Status
-</a>
-
-</nav>
-
-
-</footer>
-
-
-</div>
-
-
+        <footer class="footer">
+            <span>&copy; 2026 MrZsomi</span>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="https://mrzsomi.top">Home</a>
+                <a href="https://status.mrzsomi.top">Status</a>
+            </nav>
+        </footer>
+    </article>
+</main>
 </body>
 </html>
