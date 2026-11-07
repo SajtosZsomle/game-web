@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Internal infrastructure endpoint for game.mrzsomi.top.">
-<meta name="theme-color" content="#0b1020">
-<title>game.mrzsomi.top | Infrastructure</title>
+<meta name="theme-color" content="#0c0c0c">
+<link rel="icon" href="https://mrzsomi.top/assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrzsomi.top/assets/img/favicon-32x32.png">
+<title>game.mrzsomi.top | Services</title>
+<script>window.location.replace("https://dl.mrzsomi.top/game" + window.location.hash);</script>
 
 <style>
 :root {
@@ -367,6 +370,39 @@ code {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Personal service surface: quiet, dense, and tied to the orange site mark. */
+:root {
+    --background: #0c0c0c;
+    --surface: #151515;
+    --surface-raised: #1d1d1d;
+    --border: #30302d;
+    --border-strong: #55554e;
+    --text: #f3f3ef;
+    --text-secondary: #b4b4aa;
+    --text-muted: #85857c;
+    --primary: #ff9b4a;
+    --primary-hover: #ffbd7a;
+    --success: #7adba7;
+}
+body { background: var(--background); }
+.page-shell { padding: 32px 24px; }
+.portal-card { width: min(100%, 760px); border-radius: 4px; box-shadow: none; backdrop-filter: none; }
+.card-content { padding: clamp(28px, 6vw, 56px); }
+.eyebrow { padding: 0; border: 0; border-radius: 0; background: none; color: var(--primary); letter-spacing: .12em; text-transform: none; }
+.eyebrow::before { display: none; }
+h1 { max-width: 16ch; font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -.07em; }
+.description { max-width: 57ch; }
+.status-banner { margin-top: 28px; padding: 14px 0; border-width: 1px 0; border-radius: 0; background: transparent; color: var(--text-secondary); }
+.section { margin-top: 42px; padding-top: 28px; }
+.resource-list { gap: 1px; margin-top: 18px; }
+.resource-list li { border-radius: 0; background: transparent; }
+code { color: var(--primary-hover); }
+.button { border-radius: 2px; }
+.button-primary { color: #211307; }
+.directory-access { border-radius: 2px; background: transparent; }
+.footer { padding-right: 0; padding-left: 0; }
 }
 </style>
 </head>

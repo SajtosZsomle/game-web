@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Browse game.mrzsomi.top deployment directories and files.">
-<meta name="theme-color" content="#0b1020">
-<title>Directory browser | game.mrzsomi.top</title>
+<meta name="theme-color" content="#0c0c0c">
+<link rel="icon" href="https://mrzsomi.top/assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrzsomi.top/assets/img/favicon-32x32.png">
+<title>Directories | game.mrzsomi.top</title>
+<script>window.location.replace("https://dl.mrzsomi.top/game/directories" + window.location.hash);</script>
 
 <style>
 :root {
@@ -452,6 +455,32 @@ h1 {
         transition-duration: 0.01ms !important;
     }
 }
+
+:root {
+        --background: #0c0c0c;
+        --surface: #151515;
+        --surface-raised: #1d1d1d;
+        --surface-hover: #23231f;
+        --border: #30302d;
+        --border-strong: #55554e;
+        --text: #f3f3ef;
+        --text-secondary: #b4b4aa;
+        --text-muted: #85857c;
+        --primary: #ff9b4a;
+        --success: #7adba7;
+body { background: var(--background); }
+.page-shell { padding: 32px 24px; }
+.browser-card { margin-top: 24px; border-radius: 4px; box-shadow: none; backdrop-filter: none; }
+.browser-header { padding: clamp(28px, 6vw, 48px) clamp(24px, 6vw, 48px) 28px; }
+.eyebrow { color: var(--primary); letter-spacing: .12em; text-transform: none; }
+.eyebrow::before { display: none; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -.07em; }
+.toolbar { margin-top: 30px; }
+.search input { border-radius: 2px; background: transparent; }
+.explorer { border-radius: 2px; }
+.entry:hover { background: var(--surface-hover); }
+.entry-icon.folder { color: var(--primary); }
+.footer { padding-right: 0; padding-left: 0; }
 </style>
 </head>
 <body>
